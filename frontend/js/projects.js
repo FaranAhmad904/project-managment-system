@@ -1,7 +1,7 @@
 // ==========================
 // AUTH CHECK
 // ==========================
-
+let editingProjectId = null;
 const token = localStorage.getItem("token");
 
 if (!token) {
@@ -112,6 +112,17 @@ function closeProjectForm() {
     projectForm.reset();
 
     projectMessage.textContent = "";
+
+    editingProjectId = null;
+
+    document.querySelector(".form-header h2").textContent =
+        "Create Project";
+
+    document.querySelector(".form-header p").textContent =
+        "Enter the details of your new project";
+
+    document.querySelector(".save-project-btn").textContent =
+        "Create Project";
 }
 
 
@@ -185,6 +196,9 @@ projectForm.addEventListener("submit", async (event) => {
     const priority =
         document.getElementById("projectPriority").value;
 
+    const status =
+    document.getElementById("projectStatus").value;
+
 
     // ==========================
     // VALIDATION
@@ -214,28 +228,36 @@ projectForm.addEventListener("submit", async (event) => {
 
     try {
 
-        const response = await fetch(
-            "http://localhost:3000/projects",
-            {
-                method: "POST",
+       const url = editingProjectId
+    ? `http://localhost:3000/projects/${editingProjectId}`
+    : "http://localhost:3000/projects";
 
-                headers: {
-                    "Content-Type": "application/json",
-
-                    "Authorization": `Bearer ${token}`
-                },
-
-                body: JSON.stringify({
-                    name,
-                    description,
-                    startDate,
-                    deadline,
-                    priority
-                })
-            }
-        );
+const method = editingProjectId
+    ? "PUT"
+    : "POST";
 
 
+const response = await fetch(
+    url,
+    {
+        method: method,
+
+        headers: {
+            "Content-Type": "application/json",
+
+            "Authorization": `Bearer ${token}`
+        },
+
+        body: JSON.stringify({
+            name,
+            description,
+            startDate,
+            deadline,
+            priority,
+            status
+        })
+    }
+);
         const data = await response.json();
 
 
@@ -257,10 +279,20 @@ projectForm.addEventListener("submit", async (event) => {
         // ==========================
 
         projectMessage.textContent =
-            "Project created successfully.";
+            editingProjectId
+        ? "Project updated successfully."
+        : "Project created successfully.";
 
 
         projectForm.reset();
+        
+        editingProjectId = null;
+
+document.querySelector(".form-header h2").textContent =
+    "Create Project";
+
+document.querySelector(".save-project-btn").textContent =
+    "Create Project";
 
 
         // Reload projects
@@ -403,10 +435,12 @@ function displayProjects(projects)
 
                 <div class="project-info">
 
-                    <span>
-                        <strong>Priority:</strong>
-                        ${project.priority}
-                    </span>
+                <span>
+    <strong>Priority:</strong>
+    <span class="priority-badge priority-${project.priority}">
+        ${project.priority}
+    </span>
+</span>
 
                     <span>
                         <strong>Start:</strong>
@@ -418,9 +452,12 @@ function displayProjects(projects)
                         ${deadline}
                     </span>
 
-                    <span class="project-status">
-                        ${project.status}
-                    </span>
+                    <span>
+    <strong>Status:</strong>
+    <span class="status-badge status-${project.status}">
+        ${project.status}
+    </span>
+</span>
 
                 </div>
 
@@ -483,7 +520,68 @@ async function deleteProject(projectId)
     }
 }
 
+//editproject
 
+async function editProject(projectId)
+{
+    try{
+        const response = await fetch ( `http://localhost:3000/projects/${projectId}`,
+            {
+                method:"GET",
+
+                headers:{
+                    "Authorization": `Bearer ${token}`
+                }
+            }
+        );
+        const data = await response.json();
+
+        if(!response.ok)
+        {
+            alert("Failed to load the project");
+            return;
+        }
+
+         const project = data.project;
+
+         editingProjectId = projectId
+
+         projectFormSection.classList.add("show");
+
+         document.querySelector(".form-header h2").textContent =
+            "Edit Project";
+
+            document.getElementById("projectName").value =
+            project.name;
+
+        document.getElementById("projectDescription").value =
+            project.description || "";
+
+        document.getElementById("startDate").value =
+            project.startDate.split("T")[0];
+
+        document.getElementById("deadline").value =
+            project.deadline.split("T")[0];
+
+        document.getElementById("projectPriority").value =
+            project.priority;
+
+        document.getElementById("projectStatus").value =
+    project.status;
+
+        // Change button text
+        document.querySelector(".save-project-btn").textContent =
+            "Update Project";
+
+        // Scroll to form
+        projectFormSection.scrollIntoView({
+            behavior: "smooth"
+        });
+    }catch(error)
+    {
+        console.error(error);
+    }
+}
 
 
 

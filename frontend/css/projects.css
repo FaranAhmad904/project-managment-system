@@ -637,3 +637,51 @@ body.dark-mode .delete-project-btn {
 body.dark-mode .delete-project-btn:hover {
     background: #444;
 }
+
+/* ==========================
+   PROJECT BADGES
+========================== */
+
+.priority-badge,
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+/* Priority */
+
+.priority-low {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.priority-medium {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.priority-high {
+    background: #f8d7da;
+    color: #842029;
+}
+
+/* Status */
+
+.status-planning {
+    background: #e2e3e5;
+    color: #41464b;
+}
+
+.status-active {
+    background: #cfe2ff;
+    color: #084298;
+}
+
+.status-completed {
+    background: #d1e7dd;
+    color: #0f5132;
+}
