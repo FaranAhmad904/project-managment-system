@@ -1,0 +1,639 @@
+/* ==========================
+   PAGE HEADER
+========================== */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-size: 30px;
+    margin-bottom: 7px;
+}
+
+.page-header p {
+    color: #777;
+    font-size: 15px;
+}
+
+
+/* ==========================
+   CREATE PROJECT BUTTON
+========================== */
+
+.create-project-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 7px;
+    background: #222;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.create-project-btn:hover {
+    background: #111;
+}
+
+
+/* ==========================
+   PROJECT FORM
+========================== */
+
+.project-form-section {
+    display: none;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    border: 1px solid #e5e7eb;
+
+    margin-bottom: 25px;
+}
+
+.project-form-section.show {
+    display: block;
+}
+
+
+/* ==========================
+   FORM HEADER
+========================== */
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 25px;
+}
+
+.form-header h2 {
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+
+.form-header p {
+    color: #777;
+    font-size: 14px;
+}
+
+.close-form-btn {
+    width: 35px;
+    height: 35px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #f1f1f1;
+    color: #333;
+
+    font-size: 24px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.close-form-btn:hover {
+    background: #ddd;
+}
+
+
+/* ==========================
+   FORM ROW
+========================== */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+
+/* ==========================
+   FORM GROUP
+========================== */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #d5d9df;
+
+    border-radius: 7px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    background: white;
+
+    color: #222;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+
+    border-color: #333;
+}
+
+
+/* ==========================
+   FORM ACTIONS
+========================== */
+
+.form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 5px;
+}
+
+.cancel-btn,
+.save-project-btn {
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.cancel-btn {
+    background: #eee;
+    color: #333;
+}
+
+.cancel-btn:hover {
+    background: #ddd;
+}
+
+.save-project-btn {
+    background: #222;
+    color: white;
+}
+
+.save-project-btn:hover {
+    background: #111;
+}
+
+
+/* ==========================
+   PROJECT MESSAGE
+========================== */
+
+#projectMessage {
+    text-align: center;
+
+    margin-top: 15px;
+
+    font-size: 14px;
+}
+
+
+/* ==========================
+   PROJECTS SECTION
+========================== */
+
+.projects-section {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    border: 1px solid #e5e7eb;
+
+    min-height: 400px;
+}
+
+.projects-header {
+    margin-bottom: 20px;
+}
+
+.projects-header h2 {
+    font-size: 20px;
+}
+
+
+/* ==========================
+   PROJECTS CONTAINER
+========================== */
+
+.projects-container {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* ==========================
+   EMPTY PROJECTS
+========================== */
+
+.empty-projects {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    border: 1px dashed #d5d9df;
+
+    border-radius: 8px;
+}
+
+.empty-projects h3 {
+    font-size: 20px;
+
+    margin-bottom: 8px;
+}
+
+.empty-projects p {
+    color: #888;
+
+    margin-bottom: 20px;
+}
+
+.empty-projects button {
+    padding: 11px 18px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #222;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.empty-projects button:hover {
+    background: #111;
+}
+
+
+/* ==========================
+   PROJECT CARD
+========================== */
+
+.project-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    padding: 22px;
+
+    transition: 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.project-card h3 {
+    font-size: 18px;
+
+    margin-bottom: 10px;
+}
+
+.project-description {
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    margin-bottom: 18px;
+}
+
+
+/* ==========================
+   PROJECT INFO
+========================== */
+
+.project-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    font-size: 13px;
+
+    color: #666;
+}
+
+.project-info strong {
+    color: #333;
+}
+
+
+/* ==========================
+   PROJECT STATUS
+========================== */
+
+.project-status {
+    display: inline-block;
+
+    width: fit-content;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    background: #f0f0f0;
+
+    color: #333;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* ==========================
+   DARK MODE
+========================== */
+
+body.dark-mode .page-header p {
+    color: #aaa;
+}
+
+body.dark-mode .create-project-btn {
+    background: #fff;
+
+    color: #222;
+}
+
+body.dark-mode .create-project-btn:hover {
+    background: #ddd;
+}
+
+body.dark-mode .project-form-section,
+body.dark-mode .projects-section {
+    background: #1e1e1e;
+
+    border-color: #333;
+}
+
+body.dark-mode .form-header p {
+    color: #aaa;
+}
+
+body.dark-mode .close-form-btn {
+    background: #333;
+
+    color: #fff;
+}
+
+body.dark-mode .close-form-btn:hover {
+    background: #444;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+    background: #2a2a2a;
+
+    color: #fff;
+
+    border-color: #444;
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group select:focus,
+body.dark-mode .form-group textarea:focus {
+    border-color: #aaa;
+}
+
+body.dark-mode .cancel-btn {
+    background: #333;
+
+    color: #fff;
+}
+
+body.dark-mode .cancel-btn:hover {
+    background: #444;
+}
+
+body.dark-mode .save-project-btn {
+    background: #fff;
+
+    color: #222;
+}
+
+body.dark-mode .save-project-btn:hover {
+    background: #ddd;
+}
+
+body.dark-mode .project-card {
+    background: #1e1e1e;
+
+    border-color: #333;
+}
+
+body.dark-mode .project-card h3 {
+    color: #fff;
+}
+
+body.dark-mode .project-description {
+    color: #aaa;
+}
+
+body.dark-mode .project-info {
+    color: #aaa;
+}
+
+body.dark-mode .project-info strong {
+    color: #fff;
+}
+
+body.dark-mode .project-status {
+    background: #333;
+
+    color: #fff;
+}
+
+body.dark-mode .empty-projects {
+    border-color: #444;
+}
+
+body.dark-mode .empty-projects p {
+    color: #aaa;
+}
+
+body.dark-mode .empty-projects button {
+    background: #fff;
+
+    color: #222;
+}
+
+body.dark-mode .empty-projects button:hover {
+    background: #ddd;
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 1000px) {
+
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .page-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .page-header h1 {
+        font-size: 25px;
+    }
+
+    .projects-section,
+    .project-form-section {
+        padding: 18px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .cancel-btn,
+    .save-project-btn {
+        width: 100%;
+    }
+
+}
+/* PROJECT ACTIONS */
+
+.project-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.edit-project-btn,
+.delete-project-btn {
+    padding: 9px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.edit-project-btn {
+    background: #222;
+    color: white;
+}
+
+.edit-project-btn:hover {
+    background: #111;
+}
+
+.delete-project-btn {
+    background: #eee;
+    color: #333;
+}
+
+.delete-project-btn:hover {
+    background: #ddd;
+}
+
+
+/* DARK MODE */
+
+body.dark-mode .edit-project-btn {
+    background: white;
+    color: #222;
+}
+
+body.dark-mode .edit-project-btn:hover {
+    background: #ddd;
+}
+
+body.dark-mode .delete-project-btn {
+    background: #333;
+    color: white;
+}
+
+body.dark-mode .delete-project-btn:hover {
+    background: #444;
+}

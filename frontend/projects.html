@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects - PMS</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/projects.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- ==========================
+             SIDEBAR
+        =========================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>PMS</h2>
+                <p>Project Management</p>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    Dashboard
+                </a>
+
+                <a href="projects.html" class="nav-item active">
+                    Projects
+                </a>
+
+                <a href="#" class="nav-item">
+                    Tasks
+                </a>
+
+                <a href="#" class="nav-item">
+                    Team
+                </a>
+
+                <a href="#" class="nav-item">
+                    Profile
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button id="themeToggle" class="theme-btn">
+                    Dark Mode
+                </button>
+
+                <button id="logoutBtn" class="logout-btn">
+                    Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ==========================
+             MAIN CONTENT
+        =========================== -->
+
+        <main class="main-content">
+
+            <!-- PAGE HEADER -->
+
+            <header class="page-header">
+
+                <div>
+                    <h1>Projects</h1>
+
+                    <p>
+                        Create and manage your projects
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    id="createProjectBtn"
+                    class="create-project-btn"
+                >
+                    + Create Project
+                </button>
+
+            </header>
+
+
+            <!-- ==========================
+                 CREATE PROJECT FORM
+            =========================== -->
+
+            <section
+                id="projectFormSection"
+                class="project-form-section"
+            >
+
+                <div class="form-header">
+
+                    <div>
+                        <h2>Create Project</h2>
+
+                        <p>
+                            Enter the details of your new project
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        id="closeFormBtn"
+                        class="close-form-btn"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <form id="projectForm">
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="projectName">
+                                Project Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="projectName"
+                                placeholder="Enter project name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="projectPriority">
+                                Priority
+                            </label>
+
+                            <select id="projectPriority">
+
+                                <option value="low">
+                                    Low
+                                </option>
+
+                                <option value="medium" selected>
+                                    Medium
+                                </option>
+
+                                <option value="high">
+                                    High
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="projectDescription">
+                            Description
+                        </label>
+
+                        <textarea
+                            id="projectDescription"
+                            placeholder="Enter project description"
+                            rows="4"
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="startDate">
+                                Start Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="startDate"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="deadline">
+                                Deadline
+                            </label>
+
+                            <input
+                                type="date"
+                                id="deadline"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            id="cancelProjectBtn"
+                            class="cancel-btn"
+                        >
+                            Cancel
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="save-project-btn"
+                        >
+                            Create Project
+                        </button>
+
+                    </div>
+
+                    <p id="projectMessage"></p>
+
+                </form>
+
+            </section>
+
+
+            <!-- ==========================
+                 PROJECTS LIST
+            =========================== -->
+
+            <section class="projects-section">
+
+                <div class="projects-header">
+                    <h2>My Projects</h2>
+                </div>
+
+                <div
+                    id="projectsContainer"
+                    class="projects-container"
+                >
+
+                    <div class="empty-projects">
+
+                        <h3>No projects yet</h3>
+
+                        <p>
+                            Create your first project to get started.
+                        </p>
+
+                        <button
+                            type="button"
+                            id="emptyCreateBtn"
+                        >
+                            Create Project
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/projects.js"></script>
+
+</body>
+
+</html>
