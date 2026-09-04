@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - PMS</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- ==========================
+             SIDEBAR
+        =========================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>PMS</h2>
+                <p>Project Management</p>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item active">
+                    Dashboard
+                </a>
+
+                <a href="#" class="nav-item">
+                    Projects
+                </a>
+
+                <a href="#" class="nav-item">
+                    Tasks
+                </a>
+
+                <a href="#" class="nav-item">
+                    Team
+                </a>
+
+                <a href="#" class="nav-item">
+                    Profile
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button id="themeToggle" class="theme-btn">
+                    Dark Mode
+                </button>
+
+                <button id="logoutBtn" class="logout-btn">
+                    Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ==========================
+             MAIN CONTENT
+        =========================== -->
+
+        <main class="main-content">
+
+            <header class="top-header">
+
+                <div>
+                    <h1>Dashboard</h1>
+
+                    <p id="welcomeMessage">
+                        Welcome back
+                    </p>
+                </div>
+
+            </header>
+
+
+            <!-- ==========================
+                 DASHBOARD CARDS
+            =========================== -->
+
+            <section class="dashboard-cards">
+
+                <div class="dashboard-card">
+
+                    <div class="card-content">
+                        <h3>Projects</h3>
+                        <p>0</p>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="card-content">
+                        <h3>Tasks</h3>
+                        <p>0</p>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="card-content">
+                        <h3>Team Members</h3>
+                        <p>0</p>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="card-content">
+                        <h3>Completed Tasks</h3>
+                        <p>0</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==========================
+                 QUICK ACTIONS
+            =========================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-header">
+                    <h2>Quick Actions</h2>
+                </div>
+
+                <div class="quick-actions">
+
+                    <button class="action-btn">
+                        Create Project
+                    </button>
+
+                    <button class="action-btn">
+                        Create Task
+                    </button>
+
+                    <button class="action-btn">
+                        View Team
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==========================
+                 RECENT ACTIVITY
+            =========================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-header">
+                    <h2>Recent Activity</h2>
+                </div>
+
+                <div class="empty-state">
+                    <p>No recent activity</p>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
