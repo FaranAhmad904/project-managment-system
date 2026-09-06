@@ -2,7 +2,6 @@ const Task = require("../models/taskModel");
 const Project = require("../models/projectModel");
 
 
-
 // ==========================
 // CREATE TASK
 // ==========================
@@ -130,80 +129,160 @@ const createTask = async (req, res) => {
 
 };
 
-const getProjectTasks = async (req,res)=>{
-    try
-    {
-        const project = await Project.findById(req.params.projectId);
 
-        if(!project)
-        {
+// ==========================
+// GET PROJECT TASKS
+// ==========================
+
+const getProjectTasks = async (req, res) => {
+
+    try {
+
+        const project =
+            await Project.findById(
+                req.params.projectId
+            );
+
+
+        if (!project) {
+
             return res.status(404).json({
-                message:"Project not found "
-            })
+
+                message: "Project not found"
+
+            });
+
         }
 
-        const tasks = await Task.find({
-            project: req.params.projectId
-        }) .populate("assignedTo", "name email")
-        .populate("createdBy", "name email")
-        .sort({ createdAt: -1 });
+
+        const tasks =
+            await Task.find({
+                project: req.params.projectId
+            })
+            .populate(
+                "assignedTo",
+                "name email"
+            )
+            .populate(
+                "createdBy",
+                "name email"
+            )
+            .sort({
+                createdAt: -1
+            });
+
 
         res.status(200).json({
+
             tasks
+
         });
 
 
-    }catch(error)
-    {
-        console.error(error);
+    } catch (error) {
+
+        console.error(
+            "Get Project Tasks Error:",
+            error
+        );
+
         res.status(500).json({
+
             message: "Server error"
+
         });
+
     }
-}
 
-//get a single TASK;
+};
 
-const getTask = async(req,res)=>{
-    try{
-        const task = await Task.findById(req.params.id)
-            .populate("assignedTo", "name email")
-            .populate("createdBy", "name email")
-            .populate("project", "name");
 
-        if(!task)
-        {
+// ==========================
+// GET SINGLE TASK
+// ==========================
+
+const getTask = async (req, res) => {
+
+    try {
+
+        const task =
+            await Task.findById(
+                req.params.id
+            )
+            .populate(
+                "assignedTo",
+                "name email"
+            )
+            .populate(
+                "createdBy",
+                "name email"
+            )
+            .populate(
+                "project",
+                "name"
+            );
+
+
+        if (!task) {
+
             return res.status(404).json({
-                message:"Task not found"
-            })
-        }
-        res.status(200).json({
-            task
-        })
-    }catch (error) {
 
-        console.error(error);
+                message: "Task not found"
+
+            });
+
+        }
+
+
+        res.status(200).json({
+
+            task
+
+        });
+
+
+    } catch (error) {
+
+        console.error(
+            "Get Task Error:",
+            error
+        );
 
         res.status(500).json({
+
             message: "Server error"
+
         });
+
     }
-}
+
+};
 
 
+// ==========================
+// UPDATE TASK
+// ==========================
 
-//updateTASK
 const updateTask = async (req, res) => {
 
     try {
 
-        const task = await Task.findById(req.params.id);
+        const task =
+            await Task.findById(
+                req.params.id
+            );
+
 
         if (!task) {
+
             return res.status(404).json({
+
                 message: "Task not found"
+
             });
+
         }
+
 
         const {
             title,
@@ -214,87 +293,162 @@ const updateTask = async (req, res) => {
             assignedTo
         } = req.body;
 
+
+        // ==========================
+        // UPDATE FIELDS
+        // ==========================
+
         task.title =
-            title || task.title;
+            title !== undefined
+                ? title
+                : task.title;
+
 
         task.description =
-            description ?? task.description;
+            description !== undefined
+                ? description
+                : task.description;
+
 
         task.status =
-            status || task.status;
+            status !== undefined
+                ? status
+                : task.status;
+
 
         task.priority =
-            priority || task.priority;
+            priority !== undefined
+                ? priority
+                : task.priority;
+
 
         task.deadline =
-            deadline || task.deadline;
+            deadline !== undefined
+                ? deadline
+                : task.deadline;
+
 
         task.assignedTo =
-            assignedTo || task.assignedTo;
+            assignedTo !== undefined
+                ? assignedTo
+                : task.assignedTo;
+
+
+        // ==========================
+        // SAVE TASK
+        // ==========================
 
         await task.save();
 
+
+        // ==========================
+        // SUCCESS RESPONSE
+        // ==========================
+
         res.status(200).json({
+
             message: "Task updated successfully",
+
             task
+
         });
+
 
     } catch (error) {
 
-        console.error(error);
+        console.error(
+            "Update Task Error:",
+            error
+        );
 
         res.status(500).json({
+
             message: "Server error"
+
         });
+
     }
+
 };
 
 
-//Delete Task
+// ==========================
+// DELETE TASK
+// ==========================
 
-const deleteTask = async(req,res)=>{
-    try
-    {
-        const task = await Task.findById(req.params.id);
+const deleteTask = async (req, res) => {
 
-        if(!task)
-        {
+    try {
+
+        const task =
+            await Task.findById(
+                req.params.id
+            );
+
+
+        if (!task) {
+
             return res.status(404).json({
-                message:"Task not found"
-            })
+
+                message: "Task not found"
+
+            });
+
         }
 
-        await Task.findByIdAndDelete(req.params.id);
+
+        // ==========================
+        // DELETE TASK
+        // ==========================
+
+        await Task.findByIdAndDelete(
+            req.params.id
+        );
+
+
+        // ==========================
+        // SUCCESS RESPONSE
+        // ==========================
+
         res.status(200).json({
+
             message: "Task deleted successfully"
+
         });
-    }catch(error)
-    {
-         console.error(error);
+
+
+    } catch (error) {
+
+        console.error(
+            "Delete Task Error:",
+            error
+        );
 
         res.status(500).json({
+
             message: "Server error"
+
         });
+
     }
-}
+
+};
 
 
-
-
-
-
-
-
-
-
-
-
-
+// ==========================
+// EXPORT CONTROLLERS
+// ==========================
 
 module.exports = {
+
     createTask,
+
     getProjectTasks,
+
     getTask,
+
     updateTask,
+
     deleteTask
+
 };

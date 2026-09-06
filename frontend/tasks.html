@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tasks - PMS</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/projects.css">
+
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>PMS</h2>
+                <p>Project Management</p>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    Dashboard
+                </a>
+
+                <a href="projects.html" class="nav-item">
+                    Projects
+                </a>
+
+                <a href="tasks.html" class="nav-item active">
+                    Tasks
+                </a>
+
+                <a href="#" class="nav-item">
+                    Team
+                </a>
+
+                <a href="#" class="nav-item">
+                    Profile
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button
+                    id="themeToggle"
+                    class="theme-btn"
+                >
+                    Dark Mode
+                </button>
+
+                <button
+                    id="logoutBtn"
+                    class="logout-btn"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <main class="main-content">
+
+            <header class="page-header">
+
+                <div>
+
+                    <h1>Tasks</h1>
+
+                    <p>
+                        Manage all your project tasks
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <section class="tasks-page-section">
+
+                <div class="task-filters">
+
+    <button class="task-filter active" data-status="all">
+        All
+    </button>
+
+    <button class="task-filter" data-status="todo">
+        Todo
+    </button>
+
+    <button class="task-filter" data-status="in-progress">
+        In Progress
+    </button>
+
+    <button class="task-filter" data-status="completed">
+        Completed
+    </button>
+
+</div>
+
+                <div id="tasksContainer">
+
+                    <div class="empty-projects">
+
+                        <h3>
+                            Loading tasks...
+                        </h3>
+
+                        <p>
+                            Please wait.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            
+
+        </main>
+
+    </div>
+
+
+    <script src="js/tasks.js"></script>
+
+</body>
+
+</html>

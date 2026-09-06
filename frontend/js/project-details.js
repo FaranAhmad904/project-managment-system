@@ -128,26 +128,21 @@ async function loadUsers() {
 
     try {
 
-        const response = await fetch(
-            "http://localhost:3000/users",
-            {
-                method: "GET",
+        const response =
+            await fetch(
+                "http://localhost:3000/users",
+                {
+                    method: "GET",
 
-                headers: {
-                    "Authorization": `Bearer ${token}`
+                    headers: {
+                        "Authorization":
+                            `Bearer ${token}`
+                    }
                 }
-            }
-        );
-
+            );
 
         const data =
             await response.json();
-
-
-        console.log(
-            "Users:",
-            data
-        );
 
 
         if (!response.ok) {
@@ -178,7 +173,9 @@ async function loadUsers() {
             option.textContent =
                 `${user.name} (${user.email})`;
 
-            memberSelect.appendChild(option);
+            memberSelect.appendChild(
+                option
+            );
 
         });
 
@@ -216,26 +213,22 @@ async function loadProject() {
 
     try {
 
-        const response = await fetch(
-            `http://localhost:3000/projects/${projectId}`,
-            {
-                method: "GET",
+        const response =
+            await fetch(
+                `http://localhost:3000/projects/${projectId}`,
+                {
+                    method: "GET",
 
-                headers: {
-                    "Authorization": `Bearer ${token}`
+                    headers: {
+                        "Authorization":
+                            `Bearer ${token}`
+                    }
                 }
-            }
-        );
+            );
 
 
         const data =
             await response.json();
-
-
-        console.log(
-            "Project data:",
-            data
-        );
 
 
         if (!response.ok) {
@@ -308,7 +301,6 @@ function displayProject(project) {
                     </p>
 
                 </div>
-
 
                 <span
                     class="status-badge status-${project.status}"
@@ -435,12 +427,6 @@ saveMemberBtn.addEventListener(
                 await response.json();
 
 
-            console.log(
-                "Add member response:",
-                data
-            );
-
-
             if (!response.ok) {
 
                 memberMessage.textContent =
@@ -506,12 +492,6 @@ async function loadMembers() {
             await response.json();
 
 
-        console.log(
-            "Project members:",
-            data
-        );
-
-
         if (!response.ok) {
 
             membersContainer.innerHTML = `
@@ -565,7 +545,6 @@ async function loadMembers() {
                                 .toUpperCase()
                         }
                     </div>
-
 
                     <div>
 
@@ -627,7 +606,6 @@ async function loadMembers() {
                             }
                         </div>
 
-
                         <div>
 
                             <h3>
@@ -660,6 +638,7 @@ async function loadMembers() {
             });
 
         }
+
 
     } catch (error) {
 
@@ -710,12 +689,6 @@ async function removeMember(userId) {
             await response.json();
 
 
-        console.log(
-            "Remove member response:",
-            data
-        );
-
-
         if (!response.ok) {
 
             alert(
@@ -759,6 +732,13 @@ addTaskBtn.addEventListener(
     "click",
     async () => {
 
+        // Reset edit mode
+
+        saveTaskBtn.dataset.editingId = "";
+
+        saveTaskBtn.textContent =
+            "Create Task";
+
         addTaskForm.style.display =
             "block";
 
@@ -778,24 +758,41 @@ cancelTaskBtn.addEventListener(
     "click",
     () => {
 
-        addTaskForm.style.display =
-            "none";
-
-        taskTitle.value = "";
-
-        taskDescription.value = "";
-
-        taskPriority.value =
-            "medium";
-
-        taskDeadline.value = "";
-
-        taskAssignee.value = "";
-
-        taskMessage.textContent = "";
+        resetTaskForm();
 
     }
 );
+
+
+// ==========================
+// RESET TASK FORM
+// ==========================
+
+function resetTaskForm() {
+
+    addTaskForm.style.display =
+        "none";
+
+    taskTitle.value = "";
+
+    taskDescription.value = "";
+
+    taskPriority.value =
+        "medium";
+
+    taskDeadline.value = "";
+
+    taskAssignee.value = "";
+
+    taskMessage.textContent = "";
+
+    saveTaskBtn.dataset.editingId =
+        "";
+
+    saveTaskBtn.textContent =
+        "Create Task";
+
+}
 
 
 // ==========================
@@ -894,6 +891,7 @@ async function loadTaskMembers() {
 
         }
 
+
     } catch (error) {
 
         console.error(
@@ -910,7 +908,7 @@ async function loadTaskMembers() {
 
 
 // ==========================
-// CREATE TASK
+// CREATE / UPDATE TASK
 // ==========================
 
 saveTaskBtn.addEventListener(
@@ -961,11 +959,52 @@ saveTaskBtn.addEventListener(
 
         try {
 
+            const editingId =
+                saveTaskBtn.dataset.editingId;
+
+
+            // ==========================
+            // CREATE OR UPDATE
+            // ==========================
+
+            const isEditing =
+                editingId !== "" &&
+                editingId !== undefined;
+
+
+            const url =
+                isEditing
+                    ? `http://localhost:3000/tasks/${editingId}`
+                    : "http://localhost:3000/tasks";
+
+
+            const method =
+                isEditing
+                    ? "PUT"
+                    : "POST";
+
+
+            const bodyData = {
+
+                title,
+
+                description,
+
+                priority,
+
+                deadline,
+
+                assignedTo:
+                    assignedTo || null
+
+            };
+
+
             const response =
                 await fetch(
-                    "http://localhost:3000/tasks",
+                    url,
                     {
-                        method: "POST",
+                        method: method,
 
                         headers: {
                             "Content-Type":
@@ -975,23 +1014,10 @@ saveTaskBtn.addEventListener(
                                 `Bearer ${token}`
                         },
 
-                        body: JSON.stringify({
-
-                            title,
-
-                            description,
-
-                            priority,
-
-                            deadline,
-
-                            project:
-                                projectId,
-
-                            assignedTo:
-                                assignedTo || null
-
-                        })
+                        body:
+                            JSON.stringify(
+                                bodyData
+                            )
                     }
                 );
 
@@ -1001,7 +1027,7 @@ saveTaskBtn.addEventListener(
 
 
             console.log(
-                "Create task response:",
+                "Task response:",
                 data
             );
 
@@ -1010,27 +1036,22 @@ saveTaskBtn.addEventListener(
 
                 taskMessage.textContent =
                     data.message ||
-                    "Failed to create task";
+                    "Failed to save task";
 
                 return;
             }
 
 
-            taskTitle.value = "";
+            // ==========================
+            // RESET FORM
+            // ==========================
 
-            taskDescription.value = "";
-
-            taskPriority.value =
-                "medium";
-
-            taskDeadline.value = "";
-
-            taskAssignee.value = "";
+            resetTaskForm();
 
 
-            addTaskForm.style.display =
-                "none";
-
+            // ==========================
+            // RELOAD TASKS
+            // ==========================
 
             await loadTasks();
 
@@ -1038,12 +1059,12 @@ saveTaskBtn.addEventListener(
         } catch (error) {
 
             console.error(
-                "Error creating task:",
+                "Error saving task:",
                 error
             );
 
             taskMessage.textContent =
-                "Unable to create task";
+                "Unable to save task";
 
         }
 
@@ -1075,12 +1096,6 @@ async function loadTasks() {
 
         const data =
             await response.json();
-
-
-        console.log(
-            "Project tasks:",
-            data
-        );
 
 
         if (!response.ok) {
@@ -1139,6 +1154,10 @@ async function loadTasks() {
         }
 
 
+        // ==========================
+        // DISPLAY TASKS
+        // ==========================
+
         data.tasks.forEach(task => {
 
             const taskCard =
@@ -1163,14 +1182,12 @@ async function loadTasks() {
                         ${task.title}
                     </h3>
 
-
                     <p>
                         ${
                             task.description ||
                             "No description"
                         }
                     </p>
-
 
                     <span>
                         Assigned to:
@@ -1246,6 +1263,26 @@ async function loadTasks() {
 
                 </div>
 
+
+                <div class="task-actions">
+
+                    <button
+                        class="edit-task-btn"
+                        onclick="editTask('${task._id}')"
+                    >
+                        Edit
+                    </button>
+
+
+                    <button
+                        class="delete-task-btn"
+                        onclick="deleteTask('${task._id}')"
+                    >
+                        Delete
+                    </button>
+
+                </div>
+
             `;
 
 
@@ -1266,6 +1303,207 @@ async function loadTasks() {
         console.error(
             "Error loading tasks:",
             error
+        );
+
+    }
+
+}
+
+
+// ==========================
+// EDIT TASK
+// ==========================
+
+async function editTask(taskId) {
+
+    try {
+
+        const response =
+            await fetch(
+                `http://localhost:3000/tasks/${taskId}`,
+                {
+                    method: "GET",
+
+                    headers: {
+                        "Authorization":
+                            `Bearer ${token}`
+                    }
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            alert(
+                data.message ||
+                "Failed to load task"
+            );
+
+            return;
+        }
+
+
+        const task =
+            data.task;
+
+
+        // ==========================
+        // LOAD MEMBERS
+        // ==========================
+
+        await loadTaskMembers();
+
+
+        // ==========================
+        // FILL FORM
+        // ==========================
+
+        taskTitle.value =
+            task.title || "";
+
+
+        taskDescription.value =
+            task.description || "";
+
+
+        taskPriority.value =
+            task.priority || "medium";
+
+
+        if (task.deadline) {
+
+            taskDeadline.value =
+                task.deadline
+                    .split("T")[0];
+
+        } else {
+
+            taskDeadline.value = "";
+
+        }
+
+
+        if (task.assignedTo) {
+
+            taskAssignee.value =
+                task.assignedTo._id ||
+                task.assignedTo;
+
+        } else {
+
+            taskAssignee.value = "";
+
+        }
+
+
+        // ==========================
+        // EDIT MODE
+        // ==========================
+
+        saveTaskBtn.dataset.editingId =
+            taskId;
+
+
+        saveTaskBtn.textContent =
+            "Update Task";
+
+
+        taskMessage.textContent =
+            "";
+
+
+        addTaskForm.style.display =
+            "block";
+
+
+        // Scroll to form
+
+        addTaskForm.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+
+    } catch (error) {
+
+        console.error(
+            "Error loading task for edit:",
+            error
+        );
+
+        alert(
+            "Unable to load task"
+        );
+
+    }
+
+}
+
+
+// ==========================
+// DELETE TASK
+// ==========================
+
+async function deleteTask(taskId) {
+
+    const confirmed =
+        confirm(
+            "Are you sure you want to delete this task?"
+        );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                `http://localhost:3000/tasks/${taskId}`,
+                {
+                    method: "DELETE",
+
+                    headers: {
+                        "Authorization":
+                            `Bearer ${token}`
+                    }
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            alert(
+                data.message ||
+                "Failed to delete task"
+            );
+
+            return;
+        }
+
+
+        await loadTasks();
+
+
+    } catch (error) {
+
+        console.error(
+            "Error deleting task:",
+            error
+        );
+
+        alert(
+            "Unable to delete task"
         );
 
     }
@@ -1307,12 +1545,6 @@ async function updateTaskStatus(
 
         const data =
             await response.json();
-
-
-        console.log(
-            "Update task:",
-            data
-        );
 
 
         if (!response.ok) {
