@@ -7,6 +7,7 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const projectRoutes = require("./routes/projectRoutes");
+const taskRoutes = require("./routes/taskRoutes");
 
 const app = express();
 
@@ -18,6 +19,7 @@ connectDB();
 app.use("/auth", authRoutes);
 app.use("/users",userRoutes);
 app.use("/projects",projectRoutes);
+app.use("/tasks", taskRoutes);
 
 app.get("/", (req, res) => {
     res.json({

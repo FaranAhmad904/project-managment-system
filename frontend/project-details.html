@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project Details - PMS</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/projects.css">
+
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- ==========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>PMS</h2>
+                <p>Project Management</p>
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    Dashboard
+                </a>
+
+                <a href="projects.html" class="nav-item active">
+                    Projects
+                </a>
+
+                <a href="#" class="nav-item">
+                    Tasks
+                </a>
+
+                <a href="#" class="nav-item">
+                    Team
+                </a>
+
+                <a href="#" class="nav-item">
+                    Profile
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <button
+                    id="themeToggle"
+                    class="theme-btn"
+                >
+                    Dark Mode
+                </button>
+
+                <button
+                    id="logoutBtn"
+                    class="logout-btn"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ==========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+            <!-- PAGE HEADER -->
+
+            <header class="page-header">
+
+                <div>
+
+                    <h1>Project Details</h1>
+
+                    <p>
+                        View project information
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="create-project-btn"
+                    onclick="window.location.href='projects.html'"
+                >
+                    Back to Projects
+                </button>
+
+            </header>
+
+
+            <!-- ==========================
+                 PROJECT DETAILS
+            ========================== -->
+
+            <section id="projectDetailsContainer">
+
+                <div class="empty-projects">
+
+                    <h3>
+                        Loading project...
+                    </h3>
+
+                    <p>
+                        Please wait while the project is loading.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==========================
+                 PROJECT MEMBERS
+            ========================== -->
+
+            <section class="project-members-section">
+
+                <div class="project-members-header">
+
+                    <div>
+
+                        <h2>Project Members</h2>
+
+                        <p>
+                            People working on this project
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="addMemberBtn"
+                        class="create-project-btn"
+                    >
+                        + Add Member
+                    </button>
+
+                </div>
+
+
+                <!-- ADD MEMBER FORM -->
+
+                <div
+                    id="addMemberForm"
+                    class="add-member-form"
+                >
+
+                    <div class="form-group">
+
+                        <label for="memberSelect">
+                            Select Team Member
+                        </label>
+
+                        <select id="memberSelect">
+
+                            <option value="">
+                                Select a member
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="member-form-actions">
+
+                        <button
+                            type="button"
+                            id="cancelMemberBtn"
+                            class="cancel-btn"
+                        >
+                            Cancel
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="saveMemberBtn"
+                            class="save-project-btn"
+                        >
+                            Add Member
+                        </button>
+
+                    </div>
+
+
+                    <p id="memberMessage"></p>
+
+                </div>
+
+
+                <!-- MEMBERS LIST -->
+
+                <div
+                    id="membersContainer"
+                    class="members-container"
+                >
+
+                    <div class="empty-projects">
+
+                        <h3>
+                            No members yet
+                        </h3>
+
+                        <p>
+                            Add team members to this project.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==========================
+                 PROJECT TASKS
+            ========================== -->
+
+            <section class="project-tasks-section">
+
+                <div class="project-tasks-header">
+
+                    <div>
+
+                        <h2>Project Tasks</h2>
+
+                        <p>
+                            Tasks assigned to this project
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="addTaskBtn"
+                        class="create-project-btn"
+                    >
+                        + Add Task
+                    </button>
+
+                </div>
+
+
+                <!-- ADD TASK FORM -->
+
+                <div
+                    id="addTaskForm"
+                    class="add-task-form"
+                >
+
+                    <div class="form-group">
+
+                        <label for="taskTitle">
+                            Task Title
+                        </label>
+
+                        <input
+                            type="text"
+                            id="taskTitle"
+                            placeholder="Enter task title"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="taskDescription">
+                            Description
+                        </label>
+
+                        <textarea
+                            id="taskDescription"
+                            placeholder="Enter task description"
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="taskPriority">
+                                Priority
+                            </label>
+
+                            <select id="taskPriority">
+
+                                <option value="low">
+                                    Low
+                                </option>
+
+                                <option
+                                    value="medium"
+                                    selected
+                                >
+                                    Medium
+                                </option>
+
+                                <option value="high">
+                                    High
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="taskDeadline">
+                                Deadline
+                            </label>
+
+                            <input
+                                type="date"
+                                id="taskDeadline"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="taskAssignee">
+                            Assign To
+                        </label>
+
+                        <select id="taskAssignee">
+
+                            <option value="">
+                                Select member
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="task-form-actions">
+
+                        <button
+                            type="button"
+                            id="cancelTaskBtn"
+                            class="cancel-btn"
+                        >
+                            Cancel
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="saveTaskBtn"
+                            class="save-project-btn"
+                        >
+                            Create Task
+                        </button>
+
+                    </div>
+
+
+                    <p id="taskMessage"></p>
+
+                </div>
+
+
+                <!-- ==========================
+                     PROJECT PROGRESS
+                ========================== -->
+
+                <div class="project-progress">
+
+                    <div class="progress-header">
+
+                        <h3>
+                            Project Progress
+                        </h3>
+
+                        <span id="progressPercentage">
+                            0%
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div
+                            id="progressFill"
+                            class="progress-fill"
+                            style="width: 0%;"
+                        ></div>
+
+                    </div>
+
+
+                    <p id="progressText">
+                        0 of 0 tasks completed
+                    </p>
+
+                </div>
+
+
+                <!-- ==========================
+                     TASKS LIST
+                ========================== -->
+
+                <div
+                    id="tasksContainer"
+                    class="tasks-container"
+                >
+
+                    <div class="empty-projects">
+
+                        <h3>
+                            No tasks yet
+                        </h3>
+
+                        <p>
+                            Create tasks for this project.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/project-details.js"></script>
+
+</body>
+
+</html>

@@ -423,7 +423,7 @@ function displayProjects(projects)
             new Date(project.deadline).toLocaleDateString();
 
         return`
-            <div class="project-card">
+            <div class="project-card" onclick="viewProject('${project._id}')">
 
                 <h3>
                     ${project.name}
@@ -583,6 +583,50 @@ async function editProject(projectId)
     }
 }
 
+
+function viewProject(projectId) {
+
+    window.location.href =
+        `project-details.html?id=${projectId}`;
+
+}
+
+// ==========================
+// LOAD PROJECT
+// ==========================
+
+async function loadProject() {
+
+    if (!projectId) {
+
+        console.log("No project ID found");
+
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            `http://localhost:3000/projects/${projectId}`,
+            {
+                method: "GET",
+
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            }
+        );
+
+        const data = await response.json();
+
+        displayProject(data.project);
+
+    } catch (error) {
+
+        console.error("Error loading project:", error);
+
+    }
+}
 
 
 
