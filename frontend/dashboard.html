@@ -70,14 +70,22 @@
 
         <main class="main-content">
 
+            <!-- ==========================
+                 HEADER
+            =========================== -->
+
             <header class="top-header">
 
                 <div>
-                    <h1>Dashboard</h1>
+
+                    <h1>
+                        Dashboard
+                    </h1>
 
                     <p id="welcomeMessage">
                         Welcome back
                     </p>
+
                 </div>
 
             </header>
@@ -89,41 +97,77 @@
 
             <section class="dashboard-cards">
 
+                <!-- PROJECTS -->
+
                 <div class="dashboard-card">
 
                     <div class="card-content">
-                        <h3>Projects</h3>
-                        <p>0</p>
+
+                        <h3>
+                            Projects
+                        </h3>
+
+                        <p id="projectsCount">
+                            0
+                        </p>
+
                     </div>
 
                 </div>
 
 
+                <!-- TASKS -->
+
                 <div class="dashboard-card">
 
                     <div class="card-content">
-                        <h3>Tasks</h3>
-                        <p>0</p>
+
+                        <h3>
+                            Tasks
+                        </h3>
+
+                        <p id="tasksCount">
+                            0
+                        </p>
+
                     </div>
 
                 </div>
 
 
+                <!-- TEAM MEMBERS -->
+
                 <div class="dashboard-card">
 
                     <div class="card-content">
-                        <h3>Team Members</h3>
-                        <p>0</p>
+
+                        <h3>
+                            Team Members
+                        </h3>
+
+                        <p id="teamMembersCount">
+                            0
+                        </p>
+
                     </div>
 
                 </div>
 
 
+                <!-- COMPLETED TASKS -->
+
                 <div class="dashboard-card">
 
                     <div class="card-content">
-                        <h3>Completed Tasks</h3>
-                        <p>0</p>
+
+                        <h3>
+                            Completed Tasks
+                        </h3>
+
+                        <p id="completedTasksCount">
+                            0
+                        </p>
+
                     </div>
 
                 </div>
@@ -138,20 +182,36 @@
             <section class="dashboard-section">
 
                 <div class="section-header">
-                    <h2>Quick Actions</h2>
+
+                    <h2>
+                        Quick Actions
+                    </h2>
+
                 </div>
+
 
                 <div class="quick-actions">
 
-                    <button class="action-btn">
+                    <button
+                        class="action-btn"
+                        id="createProjectBtn"
+                    >
                         Create Project
                     </button>
 
-                    <button class="action-btn">
+
+                    <button
+                        class="action-btn"
+                        id="createTaskBtn"
+                    >
                         Create Task
                     </button>
 
-                    <button class="action-btn">
+
+                    <button
+                        class="action-btn"
+                        id="viewTeamBtn"
+                    >
                         View Team
                     </button>
 
@@ -167,11 +227,24 @@
             <section class="dashboard-section">
 
                 <div class="section-header">
-                    <h2>Recent Activity</h2>
+
+                    <h2>
+                        Recent Activity
+                    </h2>
+
                 </div>
 
-                <div class="empty-state">
-                    <p>No recent activity</p>
+
+                <div id="recentActivity">
+
+                    <div class="empty-state">
+
+                        <p>
+                            Loading activity...
+                        </p>
+
+                    </div>
+
                 </div>
 
             </section>
@@ -180,6 +253,10 @@
 
     </div>
 
+
+    <!-- ==========================
+         JAVASCRIPT
+    =========================== -->
 
     <script src="js/dashboard.js"></script>
 
