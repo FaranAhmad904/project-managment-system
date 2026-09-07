@@ -141,6 +141,7 @@ async function loadUsers() {
                 }
             );
 
+
         const data =
             await response.json();
 
@@ -732,8 +733,6 @@ addTaskBtn.addEventListener(
     "click",
     async () => {
 
-        // Reset edit mode
-
         saveTaskBtn.dataset.editingId = "";
 
         saveTaskBtn.textContent =
@@ -839,7 +838,9 @@ async function loadTaskMembers() {
         `;
 
 
+        // ==========================
         // OWNER
+        // ==========================
 
         if (data.owner) {
 
@@ -862,7 +863,9 @@ async function loadTaskMembers() {
         }
 
 
+        // ==========================
         // MEMBERS
+        // ==========================
 
         if (
             data.members &&
@@ -957,6 +960,15 @@ saveTaskBtn.addEventListener(
         }
 
 
+        if (!projectId) {
+
+            taskMessage.textContent =
+                "Project ID is missing";
+
+            return;
+        }
+
+
         try {
 
             const editingId =
@@ -984,6 +996,10 @@ saveTaskBtn.addEventListener(
                     : "POST";
 
 
+            // ==========================
+            // TASK DATA
+            // ==========================
+
             const bodyData = {
 
                 title,
@@ -994,10 +1010,18 @@ saveTaskBtn.addEventListener(
 
                 deadline,
 
+                project: projectId,
+
                 assignedTo:
                     assignedTo || null
 
             };
+
+
+            console.log(
+                "Sending task data:",
+                bodyData
+            );
 
 
             const response =
@@ -1420,7 +1444,9 @@ async function editTask(taskId) {
             "block";
 
 
-        // Scroll to form
+        // ==========================
+        // SCROLL TO FORM
+        // ==========================
 
         addTaskForm.scrollIntoView({
             behavior: "smooth",

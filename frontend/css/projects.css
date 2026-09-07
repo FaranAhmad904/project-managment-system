@@ -940,3 +940,491 @@ body.dark-mode .delete-project-btn:hover {
     }
 
 }
+
+/* ==========================
+   TASK FILTERS
+========================== */
+
+.task-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.task-filter {
+    padding: 9px 18px;
+    border: 1px solid #dcdfe6;
+    background: #ffffff;
+    color: #555;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.task-filter:hover {
+    background: #f1f3f7;
+    color: #222;
+}
+
+.task-filter.active {
+    background: #222;
+    color: #ffffff;
+    border-color: #222;
+}
+
+/* ==========================
+   TASK ACTION BUTTONS
+========================== */
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.edit-task-btn,
+.delete-task-btn {
+    padding: 7px 14px;
+    border: none;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.edit-task-btn {
+    background: #f1f3f7;
+    color: #333;
+}
+
+.edit-task-btn:hover {
+    background: #e2e5ea;
+}
+
+.delete-task-btn {
+    background: #ffecec;
+    color: #d93636;
+}
+
+.delete-task-btn:hover {
+    background: #ffd6d6;
+}
+
+/* ==========================
+   PROJECT MEMBERS
+========================== */
+
+.project-members-section {
+    margin-top: 25px;
+}
+
+.project-members-section h2 {
+    margin-bottom: 5px;
+}
+
+.project-members-section > p {
+    color: #777;
+    margin-bottom: 18px;
+}
+
+.add-member-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-member-form select {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+.add-member-form button,
+#addMemberBtn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #222;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.add-member-form button:hover,
+#addMemberBtn:hover {
+    background: #444;
+}
+/* ==========================
+   MEMBER CARD
+========================== */
+
+.member-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: 0.2s ease;
+}
+
+.member-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.member-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.member-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #222;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.member-info h3 {
+    margin: 0 0 3px;
+    font-size: 15px;
+}
+
+.member-info p {
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+}
+
+.member-role {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: #f1f3f5;
+    color: #555;
+}
+/* ==========================
+   PROJECT TASKS
+========================== */
+
+.project-tasks-section {
+    margin-top: 30px;
+}
+
+.project-tasks-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.project-tasks-header h2 {
+    margin: 0;
+}
+
+.project-tasks-header p {
+    margin-top: 5px;
+    color: #777;
+}
+
+.add-task-btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #222;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.add-task-btn:hover {
+    background: #444;
+}
+/* ==========================
+   PROJECT PROGRESS
+========================== */
+
+.project-progress {
+    margin: 25px 0;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+}
+
+.project-progress h3 {
+    margin-bottom: 12px;
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.progress-percentage {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 9px;
+    background: #e9ecef;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #222;
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #777;
+}
+/* ==========================
+   TASK CARD
+========================== */
+
+.task-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 20px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    transition: 0.2s ease;
+}
+
+.task-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+}
+
+.task-info {
+    flex: 1;
+}
+
+.task-info h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+
+.task-info p {
+    margin: 0 0 8px;
+    color: #666;
+    font-size: 14px;
+}
+
+.task-info span {
+    display: block;
+    margin-top: 4px;
+    color: #777;
+    font-size: 13px;
+}
+
+.task-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.task-priority {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.task-priority.low {
+    background: #eef7ee;
+    color: #3d7a3d;
+}
+
+.task-priority.medium {
+    background: #fff7df;
+    color: #9a7412;
+}
+
+.task-priority.high {
+    background: #ffecec;
+    color: #c53030;
+}
+
+/* ==========================
+   DARK MODE - PROJECT DETAILS
+========================== */
+
+body.dark-mode .member-card,
+body.dark-mode .project-progress,
+body.dark-mode .task-card {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+body.dark-mode .member-info h3,
+body.dark-mode .task-info h3,
+body.dark-mode .project-progress h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .member-info p,
+body.dark-mode .task-info p,
+body.dark-mode .task-info span,
+body.dark-mode .project-tasks-header p,
+body.dark-mode .progress-text {
+    color: #aaa;
+}
+
+body.dark-mode .member-role {
+    background: #333;
+    color: #ddd;
+}
+
+
+/* ==========================
+   DARK MODE - ADD BUTTONS
+========================== */
+
+body.dark-mode .add-member-form select {
+    background: #252525;
+    color: #eee;
+    border-color: #444;
+}
+
+body.dark-mode .add-member-form select:focus {
+    border-color: #666;
+}
+
+body.dark-mode .add-member-form button,
+body.dark-mode #addMemberBtn,
+body.dark-mode .add-task-btn {
+    background: #ffffff;
+    color: #222;
+}
+
+body.dark-mode .add-member-form button:hover,
+body.dark-mode #addMemberBtn:hover,
+body.dark-mode .add-task-btn:hover {
+    background: #ddd;
+}
+
+
+/* ==========================
+   DARK MODE - PROGRESS
+========================== */
+
+body.dark-mode .progress-bar {
+    background: #333;
+}
+
+body.dark-mode .progress-fill {
+    background: #ffffff;
+}
+
+body.dark-mode .progress-percentage {
+    color: #ffffff;
+}
+
+
+/* ==========================
+   DARK MODE - TASK PRIORITY
+========================== */
+
+body.dark-mode .task-priority.low {
+    background: #1d351d;
+    color: #8fd18f;
+}
+
+body.dark-mode .task-priority.medium {
+    background: #3a3218;
+    color: #e6c65c;
+}
+
+body.dark-mode .task-priority.high {
+    background: #3a1d1d;
+    color: #ff8b8b;
+}
+
+
+/* ==========================
+   DARK MODE - STATUS SELECT
+========================== */
+
+body.dark-mode .task-status-select {
+    background: #252525;
+    color: #eee;
+    border-color: #444;
+}
+
+body.dark-mode .task-status-select:focus {
+    border-color: #777;
+}
+
+
+/* ==========================
+   DARK MODE - TASK BUTTONS
+========================== */
+
+body.dark-mode .edit-task-btn {
+    background: #333;
+    color: #eee;
+}
+
+body.dark-mode .edit-task-btn:hover {
+    background: #444;
+}
+
+body.dark-mode .delete-task-btn {
+    background: #3a1d1d;
+    color: #ff8b8b;
+}
+
+body.dark-mode .delete-task-btn:hover {
+    background: #4a2323;
+}
+/* ==========================
+   DARK MODE - TASK FILTERS
+========================== */
+
+body.dark-mode .task-filter {
+    background: #252525;
+    color: #ccc;
+    border-color: #444;
+}
+
+body.dark-mode .task-filter:hover {
+    background: #333;
+    color: #fff;
+}
+
+body.dark-mode .task-filter.active {
+    background: #ffffff;
+    color: #222;
+    border-color: #ffffff;
+}

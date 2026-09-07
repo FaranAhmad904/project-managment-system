@@ -73,7 +73,9 @@ async function loadAllTasks()
 
                     })
                 }
-        } displayTasks(allTasks);
+        } currentTasks = allTasks;
+
+displayTasks(currentTasks);
     }catch(error)
     {
 
@@ -198,6 +200,46 @@ function displayTasks(tasks)
 
 }
 
+
+// ==========================
+// TASK FILTERS
+// ==========================
+
+const taskFilters =
+    document.querySelectorAll(".task-filter");
+
+let currentTasks = [];
+
+taskFilters.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        taskFilters.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        const status =
+            button.dataset.status;
+
+        if (status === "all") {
+
+            displayTasks(currentTasks);
+
+            return;
+        }
+
+        const filteredTasks =
+            currentTasks.filter(
+                task => task.status === status
+            );
+
+        displayTasks(filteredTasks);
+
+    });
+
+});
 
 
 const themeToggle = document.getElementById("themeToggle");
