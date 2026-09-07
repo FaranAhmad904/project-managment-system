@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Team - PMS</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/team.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- ==========================
+             SIDEBAR
+        =========================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>PMS</h2>
+                <p>Project Management</p>
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    Dashboard
+                </a>
+
+                <a href="projects.html" class="nav-item">
+                    Projects
+                </a>
+
+                <a href="tasks.html" class="nav-item">
+                    Tasks
+                </a>
+
+                <a href="team.html" class="nav-item active">
+                    Team
+                </a>
+
+                <a href="#" class="nav-item">
+                    Profile
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <button
+                    id="themeToggle"
+                    class="theme-btn"
+                >
+                    Dark Mode
+                </button>
+
+                <button
+                    id="logoutBtn"
+                    class="logout-btn"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ==========================
+             MAIN CONTENT
+        =========================== -->
+
+        <main class="main-content">
+
+            <!-- HEADER -->
+
+            <header class="page-header">
+
+                <div>
+
+                    <h1>
+                        Team
+                    </h1>
+
+                    <p>
+                        Manage and view your project team
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <!-- ==========================
+                 TEAM STATISTICS
+            =========================== -->
+
+            <section class="team-stats">
+
+                <div class="team-stat-card">
+
+                    <div class="stat-content">
+
+                        <h3>
+                            Total Members
+                        </h3>
+
+                        <p id="totalMembers">
+                            0
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="team-stat-card">
+
+                    <div class="stat-content">
+
+                        <h3>
+                            Managers
+                        </h3>
+
+                        <p id="managerCount">
+                            0
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="team-stat-card">
+
+                    <div class="stat-content">
+
+                        <h3>
+                            Members
+                        </h3>
+
+                        <p id="memberCount">
+                            0
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==========================
+                 SEARCH & FILTERS
+            =========================== -->
+
+            <section class="team-controls">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search team members..."
+                >
+
+
+                <select id="roleFilter">
+
+                    <option value="all">
+                        All Roles
+                    </option>
+
+                    <option value="manager">
+                        Managers
+                    </option>
+
+                    <option value="member">
+                        Members
+                    </option>
+
+                </select>
+
+            </section>
+
+
+            <!-- ==========================
+                 TEAM MEMBERS
+            =========================== -->
+
+            <section class="team-section">
+
+                <div class="section-header">
+
+                    <h2>
+                        Team Members
+                    </h2>
+
+                </div>
+
+
+                <div id="teamContainer">
+
+                    <div class="empty-state">
+
+                        <p>
+                            Loading team members...
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ==========================
+         JAVASCRIPT
+    =========================== -->
+
+    <script src="js/team.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Member Details - PMS</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/member-details.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- ==========================
+             SIDEBAR
+        =========================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>PMS</h2>
+                <p>Project Management</p>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    Dashboard
+                </a>
+
+                <a href="projects.html" class="nav-item">
+                    Projects
+                </a>
+
+                <a href="tasks.html" class="nav-item">
+                    Tasks
+                </a>
+
+                <a href="team.html" class="nav-item active">
+                    Team
+                </a>
+
+                <a href="#" class="nav-item">
+                    Profile
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button
+                    id="themeToggle"
+                    class="theme-btn"
+                >
+                    Dark Mode
+                </button>
+
+                <button
+                    id="logoutBtn"
+                    class="logout-btn"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ==========================
+             MAIN CONTENT
+        =========================== -->
+
+        <main class="main-content">
+
+            <!-- HEADER -->
+
+            <header class="page-header">
+
+                <div>
+
+                    <h1>
+                        Member Details
+                    </h1>
+
+                    <p>
+                        View team member information and activity
+                    </p>
+
+                </div>
+
+                <button
+                    class="back-btn"
+                    onclick="window.location.href='team.html'"
+                >
+                    Back to Team
+                </button>
+
+            </header>
+
+
+            <!-- ==========================
+                 MEMBER PROFILE
+            =========================== -->
+
+            <section class="member-profile">
+
+                <div
+                    id="memberAvatar"
+                    class="large-member-avatar"
+                >
+                    U
+                </div>
+
+                <div class="member-profile-info">
+
+                    <h2 id="memberName">
+                        Loading...
+                    </h2>
+
+                    <p id="memberEmail">
+                        Loading...
+                    </p>
+
+                    <span
+                        id="memberRole"
+                        class="member-role"
+                    >
+                        Member
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==========================
+                 MEMBER STATISTICS
+            =========================== -->
+
+            <section class="member-stats">
+
+                <div class="member-stat-card">
+
+                    <h3>
+                        Projects
+                    </h3>
+
+                    <p id="projectCount">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="member-stat-card">
+
+                    <h3>
+                        Total Tasks
+                    </h3>
+
+                    <p id="taskCount">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="member-stat-card">
+
+                    <h3>
+                        Completed
+                    </h3>
+
+                    <p id="completedTaskCount">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="member-stat-card">
+
+                    <h3>
+                        Pending
+                    </h3>
+
+                    <p id="pendingTaskCount">
+                        0
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==========================
+                 PROJECTS
+            =========================== -->
+
+            <section class="member-section">
+
+                <div class="section-header">
+
+                    <h2>
+                        Projects
+                    </h2>
+
+                </div>
+
+                <div id="memberProjects">
+
+                    <div class="empty-state">
+
+                        <p>
+                            Loading projects...
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==========================
+                 TASKS
+            =========================== -->
+
+            <section class="member-section">
+
+                <div class="section-header">
+
+                    <h2>
+                        Assigned Tasks
+                    </h2>
+
+                </div>
+
+                <div id="memberTasks">
+
+                    <div class="empty-state">
+
+                        <p>
+                            Loading tasks...
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ==========================
+         JAVASCRIPT
+    =========================== -->
+
+    <script src="js/member-details.js"></script>
+
+</body>
+
+</html>
