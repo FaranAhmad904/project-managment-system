@@ -1,0 +1,555 @@
+/* ==========================
+   MEMBER DETAILS PAGE
+========================== */
+
+.member-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+
+/* ==========================
+   LARGE AVATAR
+========================== */
+
+.large-member-avatar {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-size: 25px;
+    font-weight: 700;
+}
+
+
+/* ==========================
+   MEMBER INFORMATION
+========================== */
+
+.member-profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.member-profile-info h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #111827;
+}
+
+.member-profile-info p {
+    margin: 0 0 5px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* ==========================
+   BACK BUTTON
+========================== */
+
+.back-btn {
+    margin-left: auto;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.back-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* ==========================
+   MEMBER STATISTICS
+========================== */
+
+.member-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.member-stat-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 22px;
+    transition: 0.2s ease;
+}
+
+.member-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.member-stat-card h3 {
+    margin: 0 0 10px;
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.member-stat-card p {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+}
+
+
+/* ==========================
+   SECTIONS
+========================== */
+
+.member-section {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.member-section .section-header {
+    margin-bottom: 20px;
+}
+
+.member-section .section-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #111827;
+}
+
+
+/* ==========================
+   PROJECTS
+========================== */
+
+#memberProjects {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.member-project-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    transition: 0.2s ease;
+}
+
+.member-project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.project-info {
+    min-width: 0;
+}
+
+.project-info h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+    color: #111827;
+}
+
+.project-info p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.project-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+}
+
+
+/* ==========================
+   PROJECT STATUS
+========================== */
+
+.project-status,
+.project-priority {
+    padding: 5px 9px;
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    text-transform: capitalize;
+}
+
+.project-status.planning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.project-status.active {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.project-status.completed {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+
+/* ==========================
+   PROJECT PRIORITY
+========================== */
+
+.project-priority.low {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.project-priority.medium {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.project-priority.high {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+
+/* ==========================
+   TASKS
+========================== */
+
+#memberTasks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.member-task-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    transition: 0.2s ease;
+}
+
+.member-task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ==========================
+   TASK INFO
+========================== */
+
+.member-task-card .task-info {
+    min-width: 0;
+}
+
+.member-task-card .task-info h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+    color: #111827;
+}
+
+.member-task-card .task-info p {
+    margin: 0 0 5px;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.member-task-card .task-info small {
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+
+/* ==========================
+   TASK META
+========================== */
+
+.member-task-card .task-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+}
+
+
+/* ==========================
+   TASK STATUS
+========================== */
+
+.task-status {
+    padding: 5px 9px;
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    text-transform: capitalize;
+}
+
+.task-status.todo {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.task-status.in-progress {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.task-status.completed {
+    background: #dcfce7;
+    color: #166534;
+}
+
+
+/* ==========================
+   TASK PRIORITY
+========================== */
+
+.task-priority {
+    padding: 5px 9px;
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    text-transform: capitalize;
+}
+
+.task-priority.low {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.task-priority.medium {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.task-priority.high {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+
+/* ==========================
+   DEADLINE
+========================== */
+
+.task-deadline {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+
+/* ==========================
+   EMPTY STATE
+========================== */
+
+.member-section .empty-state {
+    padding: 30px;
+    text-align: center;
+}
+
+.member-section .empty-state p {
+    margin: 0;
+    color: #6b7280;
+}
+
+
+/* ==========================
+   DARK MODE
+========================== */
+
+body.dark-mode .member-profile {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-mode .member-profile-info h2 {
+    color: #f9fafb;
+}
+
+body.dark-mode .member-profile-info p {
+    color: #9ca3af;
+}
+
+
+body.dark-mode .member-stat-card {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-mode .member-stat-card h3 {
+    color: #9ca3af;
+}
+
+body.dark-mode .member-stat-card p {
+    color: #f9fafb;
+}
+
+
+body.dark-mode .member-section {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-mode .member-section .section-header h2 {
+    color: #f9fafb;
+}
+
+
+body.dark-mode .member-project-card {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-mode .member-project-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .project-info h3 {
+    color: #f9fafb;
+}
+
+body.dark-mode .project-info p {
+    color: #9ca3af;
+}
+
+
+body.dark-mode .member-task-card {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-mode .member-task-card .task-info h3 {
+    color: #f9fafb;
+}
+
+body.dark-mode .member-task-card .task-info p {
+    color: #9ca3af;
+}
+
+body.dark-mode .member-task-card .task-info small {
+    color: #6b7280;
+}
+
+body.dark-mode .task-deadline {
+    color: #9ca3af;
+}
+
+body.dark-mode .member-section .empty-state p {
+    color: #9ca3af;
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 1000px) {
+
+    .member-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .member-profile {
+        flex-wrap: wrap;
+    }
+
+    .back-btn {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .member-project-card,
+    .member-task-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .project-meta,
+    .member-task-card .task-meta {
+        margin-left: 0;
+        flex-wrap: wrap;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .member-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .member-profile {
+        padding: 20px;
+    }
+
+    .large-member-avatar {
+        width: 65px;
+        height: 65px;
+        min-width: 65px;
+        font-size: 20px;
+    }
+
+    .member-profile-info h2 {
+        font-size: 20px;
+    }
+
+}

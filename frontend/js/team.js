@@ -359,6 +359,21 @@ function displayTeam(users) {
         `;
 
 
+        // ==========================
+        // OPEN MEMBER DETAILS
+        // ==========================
+
+        card.addEventListener(
+            "click",
+            () => {
+
+                window.location.href =
+                    `member-details.html?id=${user._id}`;
+
+            }
+        );
+
+
         teamContainer.appendChild(
             card
         );
