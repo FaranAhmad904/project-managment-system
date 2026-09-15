@@ -1,6 +1,8 @@
 # Project Management System (PMS)
 
 A full-stack web application for managing projects, tasks, and team members in one place. The system provides user authentication, project management, task organization, and project tracking features.
+The main purpose of this project is to manage the projects and to provide a way for the users to store there projects and tasks
+
 
 ## Features
 
