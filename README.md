@@ -36,3 +36,7 @@ project-management-system/
 ## Author
 
 **Faran Ahmad**
+
+Software Engineer
+
+
